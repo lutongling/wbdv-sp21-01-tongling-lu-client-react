@@ -1,9 +1,8 @@
 import React from 'react'
 import CourseTable from "./course-table";
 import CourseGrid from "./course-grid";
-import CourseEditor from "./course-editor";
 import {Route} from "react-router-dom";
-import courseService, {findAllCourses, deleteCourse} from "../services/course-service";
+import courseService from "../services/course-service";
 
 class CourseManager extends React.Component {
 
@@ -19,7 +18,7 @@ class CourseManager extends React.Component {
 
 
     componentDidMount = () =>
-        findAllCourses()
+        courseService.findAllCourses()
             .then(courses => this.setState({courses}))
 
 
@@ -42,15 +41,13 @@ class CourseManager extends React.Component {
 
     };
 
+
     deleteCourse = (courseToDelete) => {
         courseService.deleteCourse(courseToDelete._id)
             .then(status => {
-                // console.log("a", prevState)
-                //VERY ADVANCED
                 this.setState((prevState) => ({
                     ...prevState,
-                    //override the object attributes
-                    courses: prevState.courses.filter(course => course !== courseToDelete)
+                    courses: prevState.courses.filter(course => course._id !== courseToDelete._id)
                 }))
             })
     };
@@ -61,32 +58,22 @@ class CourseManager extends React.Component {
             .then(status =>
                 this.setState((prevState) => ({
                     ...prevState,
-                    // courses: prevState.courses.map(c => {
-                    //     if(c._id === course._id) {
-                    //         return course
-                    //     } else {
-                    //         return c
-                    //     }
-                    // })
-
                     courses: prevState.courses.map(c =>
                        c._id === course._id ? course : c)
 
                 })))
     }
 
+
     render() {
         return(
             <div>
-                {/*<h1>Course Manager</h1>*/}
                 <div className="wbdv-sticky-top wbdv-padding-5px text-align: center">
                     <div className="row">
-                        <div
-                            className="col-1 wbdv-margin-top-5px wbdv-margin-left-10px">
+                        <div className="col-1 wbdv-margin-top-5px wbdv-margin-left-10px">
                             <i className="fa fa-bars fa-2x"></i>
                         </div>
-                        <div
-                            className="col-2 wbdv-margin-top-5px wbdv-margin-right-45px wbdv-hide-sm-screen">
+                        <div className="col-2 wbdv-margin-top-5px wbdv-margin-right-45px wbdv-hide-sm-screen">
                             <h3>Course Manager</h3>
                         </div>
                         <div className="col-7">
@@ -96,7 +83,6 @@ class CourseManager extends React.Component {
                                    value={this.state.inputCourse}/>
                         </div>
                         <div className="col-1 wbdv-margin-top-5px">
-                            {/*<i onClick={this.addCourse}*/}
                             <i onClick = {() => {
                                 this.addCourse()
                                 this.setState({inputCourse: ""})
@@ -110,9 +96,7 @@ class CourseManager extends React.Component {
                 <br/>
                 <br/>
 
-
-                <Route path={['/courses/table', '/courses']}>
-                {/*<Route path="/courses/table">*/}
+                <Route path= {["/courses/table", "/courses"]} exact={true}>
                     <CourseTable
                         updateCourse={this.updateCourse}
                         deleteCourse={this.deleteCourse}
@@ -126,25 +110,15 @@ class CourseManager extends React.Component {
                         courses={this.state.courses}/>
                 </Route>
 
-
-                {/*<Route path="/courses/editor">*/}
-                {/*    <CourseEditor/>*/}
-                {/*</Route>*/}
-                {/*<Route path="/courses/editor"*/}
-                {/*       render={(props) => <CourseEditor props={props}/>}>*/}
-                {/*</Route>*/}
-
-                <Route path="/courses/editor"
-                       render={(props) => <CourseEditor {...props}/>}>
-                </Route>
-
-
                 <div className="wbdv-icon-fixed">
-                    <i onClick={this.addCourse} className="fa fa-plus-circle text-danger fa-5x"></i>
+                    <i onClick = {() => {
+                        this.addCourse()
+                        this.setState({inputCourse: ""})
+                        }}
+                       className="fa fa-plus-circle text-danger fa-5x"></i>
                 </div>
 
             </div>
-
 
         )
     }

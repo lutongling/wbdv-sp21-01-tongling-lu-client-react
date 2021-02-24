@@ -7,7 +7,6 @@ export default class CourseTable
 
     constructor(props) {
         super(props);
-        console.log(props)
     }
 
     render() {
@@ -29,13 +28,12 @@ export default class CourseTable
                         </tr>
                     </thead>
                     <tbody>
-                    {/*<CourseRow title="CS2345" owner="bob" lastModified={"2/23/24"}/>*/}
                     {
-                        this.props.courses.map((course, ndx) =>
+                        this.props.courses.map((course) =>
                             <CourseRow
                                 deleteCourse={this.props.deleteCourse}
                                 updateCourse={this.props.updateCourse}
-                                key={ndx}
+                                key={course._id}
                                 course={course}
                                 title={course.title}
                                 owner={course.owner}

@@ -28,28 +28,23 @@ const CourseGrid = (
                 <i className="fas fa-2x fa-sort-down"></i>
             </div>
 
-            <div className="col-2">
-            {/*<Link to="/courses/table">*/}
-            {/*<i className="fas fa-2x fa-list color-black float-right"></i>*/}
-            {/*</Link>*/}
-            {/*<i className="fas fa-2x fa-folder wbdv-margin-right-10px float-right"> </i>*/}
-            {/*<i className="fas fa-2x fa-sort-alpha-up-alt wbdv-margin-right-10px float-right"> </i>*/}
-            </div>
-
+            <div className="col-2"></div>
         </div>
 
         <div className="row">
             {
                 courses.map(course =>
                     <CourseCard
+                        key={course._id}
                         course={course}
                         deleteCourse={deleteCourse}
                         updateCourse={updateCourse}
-                        // title={course.title}
+                        title={course.title}
                     />
                 )
             }
         </div>
+
     </div>
 
 export default CourseGrid
