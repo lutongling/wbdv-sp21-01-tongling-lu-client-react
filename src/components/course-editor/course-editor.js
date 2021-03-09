@@ -1,4 +1,5 @@
 import React from 'react'
+import {useParams, useHistory} from "react-router-dom";
 import moduleReducer from "../../reducers/module-reducer";
 import lessonReducer from "../../reducers/lesson-reducer";
 import topicReducer from "../../reducers/topic-reducer";
@@ -21,9 +22,10 @@ const reducer = combineReducers({
 //const store = createStore(lessonReducer)
 const store = createStore(reducer)
 
-const CourseEditor = ({history}) =>
+const CourseEditor = ({history, params}) => {
+    const {layout, courseId, moduleId, lessonId} = useParams();
+    return (
     <Provider store={store}>
-
         <div>
             <div className="wbdv-sticky-top wbdv-padding-5px">
                 <div className="row">
@@ -31,6 +33,8 @@ const CourseEditor = ({history}) =>
                         <i onClick={() => history.goBack()}
                            className="fas fa-2x fa-arrow-left"></i>
                     </div>
+
+                    C E {layout} {courseId}
                     <div
                         className="col-3 wbdv-padding-5px wbdv-margin-top-5px wbdv-hide-sm-screen color-white">
                         <h4>CS5610 - WebDev</h4>
@@ -89,9 +93,7 @@ const CourseEditor = ({history}) =>
                 </div>
             </div>
 
-
-
         </div>
 
-    </Provider>
+    </Provider>)}
 export default CourseEditor

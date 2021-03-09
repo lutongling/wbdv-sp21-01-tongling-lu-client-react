@@ -30,7 +30,7 @@ const CourseRow = (
                     <i className="fas fa-file text-primary wbdv-margin-right-10px"></i>
                     {
                         !editing &&
-                        <Link to="/courses/editor">
+                        <Link to={`/courses/table/edit/${course._id}`}>
                             <span className="color-black">
                                 {title}
                             </span>
