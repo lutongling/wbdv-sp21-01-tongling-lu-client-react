@@ -23,7 +23,7 @@ const TopicPills = (
                                 </li>)
             }
 
-            <li className="list-group-item">
+            <li className="list-group-item borderless">
                 <a onClick={createTopic} className="fas fa-plus fa-2x"></a>
             </li>
 

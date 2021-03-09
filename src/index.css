@@ -121,3 +121,11 @@ div {
   text-overflow: ellipsis;
   overflow: hidden;
 }
+
+.list-group-item.active a {
+  color: white;
+}
+
+.borderless {
+  border: 0 none;
+}
