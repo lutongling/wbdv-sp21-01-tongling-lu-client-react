@@ -19,10 +19,15 @@ const reducer = combineReducers({
 
 })
 
+// use store to keep track of a history of states
 const store = createStore(reducer)
 
+// course editor
 const CourseEditor = ({history}) => {
+    // retrieve the params in the rendered route
     const {layout, courseId, moduleId, lessonId} = useParams();
+
+    // retrieve the course title
     const [courseTitle, setCourseTitle] = useState('');
     useEffect( () => {
         courseService.findCourseById(courseId)
