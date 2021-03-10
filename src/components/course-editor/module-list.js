@@ -2,9 +2,9 @@ import React, {useEffect} from 'react'
 import {connect} from 'react-redux'
 import EditableItem from "../editable-item";
 import {useParams} from "react-router-dom";
-// import {findModulesForCourse, createModule} from "../../services/module-service";
 import moduleService from "../../services/module-service";
 
+// module list component
 const ModuleList = (
     {
         myModules=[],
@@ -13,13 +13,15 @@ const ModuleList = (
         updateModule,
         findModulesForCourse
     }) => {
+    // retrieve the params from the rendered route
     const {layout, courseId, moduleId} = useParams();
+
+    // call this to render all the modules for this course
     useEffect(() => {
         findModulesForCourse(courseId)
     }, [])
     return (
     <div>
-        <h2>Modules {myModules.length}</h2>
         <ul className="list-group">
             {
                 myModules.map(module =>
@@ -33,7 +35,7 @@ const ModuleList = (
                 )
             }
 
-            <li className="list-group-item">
+            <li className="list-group-item center">
                 <i onClick={() => createModule(courseId)} className="fas fa-plus fa-2x"></i>
             </li>
         </ul>
