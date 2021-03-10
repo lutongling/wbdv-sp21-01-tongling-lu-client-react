@@ -28,9 +28,11 @@ const LessonTabs = (
                                 <li className="nav-item">
                                     {/*<a className="nav-link" href="#">*/}
                                         <EditableItem
+                                            // to={`/courses/${layout}/edit/${courseId}/modules/${moduleId}/lessons/${lesson._id}`}
                                             to={`/courses/${layout}/edit/${courseId}/modules/${moduleId}/lessons/${lesson._id}`}
                                             updateItem={updateLesson}
                                             deleteItem={deleteLesson}
+                                            active={lesson._id === lessonId}
                                             item={lesson}/>
                                     {/*</a>*/}
                                 </li>)
@@ -73,10 +75,16 @@ const dtmp = (dispatch) => {
         },
         findLessonsForModule: (moduleId) => {
             lessonService.findLessonsForModule(moduleId)
-                .then(lessons => dispatch({
-                    type: "FIND_LESSONS_FOR_MODULE",
-                    lessons
-                }))
+                .then(lessons => {
+                    dispatch({
+                                 type: "FIND_LESSONS_FOR_MODULE",
+                                 lessons
+                             })
+                    dispatch({
+                                 type: "FIND_TOPICS_FOR_LESSON",
+                                 topics: []
+                             })
+                })
         }
     }
 }

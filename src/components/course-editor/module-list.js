@@ -68,10 +68,23 @@ const dtpm = (dispatch) => {
         )},
         findModulesForCourse: (courseId) => {
             moduleService.findModulesForCourse(courseId)
-                .then(modules => dispatch({
-                    type: "FIND_MODULES_FOR_COURSE",
-                    modules: modules
-            }))
+                .then(modules => {
+                    dispatch({
+                                 type: "FIND_MODULES_FOR_COURSE",
+                                 modules: modules
+                             })
+
+                    dispatch({
+                                 type: "FIND_LESSONS_FOR_MODULE",
+                                 lessons: []
+                             })
+
+                    dispatch({
+                                 type: "FIND_TOPICS_FOR_LESSON",
+                                 topics: []
+                             })
+
+                })
         }
     }
 }
