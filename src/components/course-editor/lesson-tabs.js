@@ -4,6 +4,7 @@ import EditableItem from "../editable-item";
 import {useParams} from "react-router-dom";
 import lessonService from "../../services/lesson-service"
 
+// lesson tabs component
 const LessonTabs = (
     {
         lessons=[],
@@ -12,29 +13,27 @@ const LessonTabs = (
         updateLesson,
         findLessonsForModule
     }) => {
+    // retrieve the params from the rendered route
     const {layout, courseId, moduleId, lessonId} = useParams();
+
+    // call this to render all the modules for this course except for those with undefined module id
     useEffect(() => {
         if(moduleId !== "undefined" && typeof moduleId !== "undefined") {
             findLessonsForModule(moduleId)
         }
-        //findLessonsForModule(moduleId)
     }, [moduleId])
     return (
     <div>
-        <h2>Lessons</h2>
         <ul className="nav nav-tabs">
             {
                 lessons.map(lesson =>
                                 <li className="nav-item">
-                                    {/*<a className="nav-link" href="#">*/}
                                         <EditableItem
-                                            // to={`/courses/${layout}/edit/${courseId}/modules/${moduleId}/lessons/${lesson._id}`}
                                             to={`/courses/${layout}/edit/${courseId}/modules/${moduleId}/lessons/${lesson._id}`}
                                             updateItem={updateLesson}
                                             deleteItem={deleteLesson}
                                             active={lesson._id === lessonId}
                                             item={lesson}/>
-                                    {/*</a>*/}
                                 </li>)
             }
 
