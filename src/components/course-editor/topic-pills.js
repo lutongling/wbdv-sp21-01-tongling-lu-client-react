@@ -4,6 +4,7 @@ import EditableItem from "../editable-item";
 import {useParams} from "react-router-dom";
 import topicService from "../../services/topic-service"
 
+// topic pills component
 const TopicPills = (
     {
         topics=[],
@@ -12,7 +13,10 @@ const TopicPills = (
         updateTopic,
         findTopicsForLesson
     }) => {
+    // retrieve the params from the rendered route
     const {layout, courseId, moduleId, lessonId, topicId} = useParams();
+
+    // call this to render all the topics for this course except for those with undefined lesson id
     useEffect(() => {
         if(lessonId !== "undefined" && typeof lessonId !== "undefined") {
             findTopicsForLesson(lessonId)
@@ -20,21 +24,16 @@ const TopicPills = (
     }, [lessonId])
     return (
     <div>
-        <h2>Topics</h2>
         <ul className="nav nav-pills">
             {
                 topics.map(topic =>
                                 <li className="nav-item">
-                                    {/*<a className={`nav-link ${active ? 'active' : ''}`}>*/}
-                                        {/*{topic.title}*/}
                                         <EditableItem
                                             to={`/courses/${layout}/edit/${courseId}/modules/${moduleId}/lessons/${lessonId}/topics/${topic._id}`}
-                                            // to={`/courses/${layout}/edit/${courseId}/modules/${moduleId}/lessons/${lessonId}`}
                                             updateItem={updateTopic}
                                             deleteItem={deleteTopic}
                                             active={topic._id === topicId}
                                             item={topic}/>
-                                    {/*</a>*/}
                                 </li>)
             }
 
