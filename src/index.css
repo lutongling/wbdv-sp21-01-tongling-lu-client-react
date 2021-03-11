@@ -129,3 +129,7 @@ div {
 .borderless {
   border: 0 none;
 }
+
+.center {
+  text-align: center;
+}

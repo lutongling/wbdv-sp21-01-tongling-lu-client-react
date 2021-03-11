@@ -1,9 +1,5 @@
 const initialState = {
-    modules: [
-        // {_id: 123, title: "Module 123"},
-        // {_id: 234, title: "Module 234"},
-        // {_id: 345, title: "Module 345"},
-    ]
+    modules: []
 }
 
 const moduleReducer = (state=initialState, action) => {
@@ -15,7 +11,6 @@ const moduleReducer = (state=initialState, action) => {
                     action.module
                 ]
             }
-        // case "FIND_MODULE":
         case "DELETE_MODULE":
             const newState1 = {
                 modules: state.modules.filter(module => {
