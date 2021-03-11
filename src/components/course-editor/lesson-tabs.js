@@ -16,7 +16,7 @@ const LessonTabs = (
     // retrieve the params from the rendered route
     const {layout, courseId, moduleId, lessonId} = useParams();
 
-    // call this to render all the modules for this course except for those with undefined module id
+    // call this to render all the lessons for this course except for those with undefined module id
     useEffect(() => {
         if(moduleId !== "undefined" && typeof moduleId !== "undefined") {
             findLessonsForModule(moduleId)
