@@ -1,12 +1,12 @@
 import React, {useState} from 'react'
 import {Link} from "react-router-dom";
 
+// Editable Item component
 const EditableItem = (
     {
         to,
         deleteItem,
         updateItem,
-        // item = {title: "Some title", _id: "ABC"},
         item,
         active
     }) => {
@@ -20,7 +20,7 @@ const EditableItem = (
                         <Link className={`nav-link ${active ? 'active' : ''}`}
                               to={to}>
                             {item.title} &nbsp;
-                            <i onClick={() => setEditing(true)} className="fas fa-edit"></i>
+                            <i onClick={() => setEditing(true)} className="fas fa-edit fa-pull-right"></i>
                         </Link>
                     </>
                 }
@@ -37,8 +37,8 @@ const EditableItem = (
                         <i onClick={() => {
                             setEditing(false)
                             updateItem(cachedItem)
-                        }} className="fas fa-check"></i>
-                        <i onClick={() => deleteItem(item)} className="fas fa-times"></i>
+                        }} className="fas fa-check fa-pull-right"></i>
+                        <i onClick={() => deleteItem(item)} className="fas fa-times fa-pull-right"></i>
                     </>
                 }
 
