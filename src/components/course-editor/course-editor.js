@@ -3,19 +3,23 @@ import {useParams, Link} from "react-router-dom";
 import moduleReducer from "../../reducers/module-reducer";
 import lessonReducer from "../../reducers/lesson-reducer";
 import topicReducer from "../../reducers/topic-reducer";
+import widgetReducer from "../../reducers/widget-reducer";
 import {combineReducers, createStore} from "redux";
 import {Provider} from "react-redux";
 import ModuleList from "./module-list";
 import LessonTabs from "./lesson-tabs";
 import TopicPills from "./topic-pills";
 import courseService from "../../services/course-service";
+import WidgetList from "../widgets/widget-list";
+import TopicPillsOwn from "./topic-pills-own";
 
 
 // super/overall reducer
 const reducer = combineReducers({
     moduleReducer: moduleReducer,
     lessonReducer: lessonReducer,
-    topicReducer: topicReducer
+    topicReducer: topicReducer,
+    widgetReducer: widgetReducer
 
 })
 
@@ -62,12 +66,15 @@ const CourseEditor = ({history}) => {
             <br/>
 
             <div className="row">
-                <div className="col-4">
+                <div className="col-3">
                     <ModuleList/>
                 </div>
-                <div className="col-8">
+                <div className="col-9">
                     <LessonTabs/>
-                    <TopicPills/>
+                    {/*<TopicPills/>*/}
+                    <TopicPillsOwn/>
+                    <br/>
+                    <WidgetList/>
                 </div>
             </div>
 
