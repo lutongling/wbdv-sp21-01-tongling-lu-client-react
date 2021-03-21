@@ -18,8 +18,6 @@ const WidgetList = (
     const [editingWidget, setEditingWidget] = useState({});
 
     useEffect(() => {
-        // fetch(`http://localhost:8080/api/topics/${topicId}/widgets`)
-        //     .then(response => response.json())
         findWidgetsForTopic(topicId)
     }, [topicId])
 
