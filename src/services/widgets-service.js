@@ -2,7 +2,11 @@
 const TOPIC_URL = "http://wbdv-sp21-01-tongling.herokuapp.com/api/topics"
 const WIDGET_URL = "http://wbdv-sp21-01-tongling.herokuapp.com/api/widgets"
 
-// instead of using env and configuration
+// This is the local one and you can refresh
+// const TOPIC_URL = "http://localhost:8080/api/topics"
+// const WIDGET_URL = "http://localhost:8080/api/widgets"
+
+// instead of using env and configuration - maybe for following assignments
 // const TOPIC_URL = process.env.REACT_APP_TOPIC_URL
 // const WIDGET_URL = process.env.REACT_APP_WIDGET_URL
 
