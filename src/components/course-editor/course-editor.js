@@ -11,8 +11,6 @@ import LessonTabs from "./lesson-tabs";
 import TopicPills from "./topic-pills";
 import courseService from "../../services/course-service";
 import WidgetList from "../widgets/widget-list";
-import TopicPillsOwn from "./topic-pills-own";
-
 
 // super/overall reducer
 const reducer = combineReducers({
@@ -71,8 +69,7 @@ const CourseEditor = ({history}) => {
                 </div>
                 <div className="col-9">
                     <LessonTabs/>
-                    {/*<TopicPills/>*/}
-                    <TopicPillsOwn/>
+                    <TopicPills/>
                     <br/>
                     <WidgetList/>
                 </div>

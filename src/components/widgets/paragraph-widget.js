@@ -6,10 +6,6 @@ const ParagraphWidget = ({widget, editingWidget, setWidget, editing}) => {
             {
                 editing &&
                 <>
-                    <select onChange={(e) => setWidget(widget => ({...widget, type: e.target.value}))} value={editingWidget.type} className="form-control">
-                        <option value={"HEADING"}>Heading</option>
-                        <option value={"PARAGRAPH"}>Paragraph</option>
-                    </select>
                     <br/>
                     <textarea
                         onChange={(e) => setWidget({...widget, text: e.target.value})}

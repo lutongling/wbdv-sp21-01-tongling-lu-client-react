@@ -38,6 +38,17 @@ const WidgetList = (
                                 }} className="fas fa-2x fa-check float-right"></i>
 
                                 <i onClick={() => deleteWidget(widget.id)} className="fas fa-2x fa-trash float-right"></i>
+
+                                <select
+                                    onChange={(e) => {
+                                        setEditingWidget(widget => ({...widget, type: e.target.value}))
+                                        widget.type = e.target.value}}
+                                    value={editingWidget.type}
+                                    className="form-control">
+                                    <option value={"PARAGRAPH"}>Paragraph</option>
+                                    <option value={"HEADING"}>Heading</option>
+                                </select>
+
                             </>
                         }
                         {

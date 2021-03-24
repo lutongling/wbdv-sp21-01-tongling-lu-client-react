@@ -6,10 +6,6 @@ const HeadingWidget = ({widget, editingWidget, setWidget, editing}) => {
             {
                 editing &&
                 <>
-                    <select onChange={(e) => setWidget(widget => ({...widget, type: e.target.value}))} value={editingWidget.type} className="form-control">
-                        <option value={"PARAGRAPH"}>Paragraph</option>
-                        <option value={"HEADING"}>Heading</option>
-                    </select>
                     <br/>
                     <input onChange={(e) => setWidget(widget => ({...widget, text: e.target.value}))} value={editingWidget.text} className="form-control"/>
                     <br/>
