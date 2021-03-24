@@ -2,7 +2,7 @@
 const TOPIC_URL = "http://wbdv-sp21-01-tongling.herokuapp.com/api/topics"
 const WIDGET_URL = "http://wbdv-sp21-01-tongling.herokuapp.com/api/widgets"
 
-// This is the local one and you can refresh
+// This is the local one and you can refresh to get the initial array list widgets in server
 // const TOPIC_URL = "http://localhost:8080/api/topics"
 // const WIDGET_URL = "http://localhost:8080/api/widgets"
 
