@@ -36,13 +36,7 @@ const ListWidget = ({widget, editingWidget, setWidget, editing}) => {
             {
                 editing &&
                 <div>
-                    <input onChange={(e) => {
-                        if (e.target.checked === true){
-                            setWidget(widget = ({...widget, ordered: true}))
-                        } else {
-                            setWidget(widget = ({...widget, ordered: false}))
-                        }
-                    }}
+                    <input onChange={(e) => setWidget(widget => ({...widget, ordered: e.target.checked}))}
                            checked={editingWidget.ordered}
                            type="checkbox"/> Ordered
                     <br/>
