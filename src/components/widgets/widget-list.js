@@ -110,7 +110,7 @@ const stpm = (state) => ({
 const dtmp = (dispatch) => {
     return {
         createWidget: (topicId) => {
-            widgetService.createWidget(topicId, {type: "HEADING", size: 1, text: "New Widget"})
+            widgetService.createWidget(topicId, {type: "HEADING", size: 1, text: "New Widget", ordered: 0})
                 .then(widget => dispatch({
                                              type: "CREATE_WIDGET",
                                              widget
