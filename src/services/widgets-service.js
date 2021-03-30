@@ -1,10 +1,7 @@
-// Professor mentioned in OH that for A5 we could just hard-coded the server-side heroku url
-const TOPIC_URL = "http://wbdv-sp21-01-tongling.herokuapp.com/api/topics"
-const WIDGET_URL = "http://wbdv-sp21-01-tongling.herokuapp.com/api/widgets"
-
-// This is the local one and you can refresh to get the initial array list widgets in server
-// const TOPIC_URL = "http://localhost:8080/api/topics"
-// const WIDGET_URL = "http://localhost:8080/api/widgets"
+// Professor mentioned in piazza post @1040 that we would not be able to deploy to Heroku for A6
+// So the url is just for local
+const TOPIC_URL = "http://localhost:8080/api/topics"
+const WIDGET_URL = "http://localhost:8080/api/widgets"
 
 // instead of using env and configuration - maybe for following assignments
 // const TOPIC_URL = process.env.REACT_APP_TOPIC_URL

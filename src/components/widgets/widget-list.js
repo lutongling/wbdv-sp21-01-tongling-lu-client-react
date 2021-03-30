@@ -4,6 +4,8 @@ import HeadingWidget from "./heading-widget";
 import ParagraphWidget from "./paragraph-widget";
 import {useParams} from "react-router-dom";
 import {connect} from "react-redux";
+import ListWidget from "./list-widget";
+import ImageWidget from "./image-widget";
 
 const WidgetList = (
     {
@@ -47,6 +49,8 @@ const WidgetList = (
                                     className="form-control">
                                     <option value={"PARAGRAPH"}>Paragraph</option>
                                     <option value={"HEADING"}>Heading</option>
+                                    <option value={"LIST"}>List</option>
+                                    <option value={"IMAGE"}>Image</option>
                                 </select>
 
                             </>
@@ -66,6 +70,24 @@ const WidgetList = (
                         {
                             widget.type === "PARAGRAPH" &&
                             <ParagraphWidget
+                                editing={editingWidget.id === widget.id}
+                                setWidget={setEditingWidget}
+                                editingWidget={editingWidget}
+                                widget={widget}
+                            />
+                        }
+                        {
+                            widget.type === "LIST" &&
+                            <ListWidget
+                                editing={editingWidget.id === widget.id}
+                                setWidget={setEditingWidget}
+                                editingWidget={editingWidget}
+                                widget={widget}
+                            />
+                        }
+                        {
+                            widget.type === "IMAGE" &&
+                            <ImageWidget
                                 editing={editingWidget.id === widget.id}
                                 setWidget={setEditingWidget}
                                 editingWidget={editingWidget}
