@@ -10,14 +10,14 @@ const ImageWidget = ({widget, editingWidget, setWidget, editing}) => {
             {
                 editing &&
                     <div>
-                        URL
+                        Image URL
                         <input onChange={(e) => setWidget(widget => ({...widget, src: e.target.value}))}
                                value={editingWidget.src}
                                className="form-control"/>
-                        width
+                        Image width
                         <input onChange={(e) => setWidget(widget => ({...widget, width: e.target.value}))}
                                value={editingWidget.width} className="form-control"/>
-                        height
+                        Image height
                         <input onChange={(e) => setWidget(widget => ({...widget, height: e.target.value}))}
                                value={editingWidget.height} className="form-control"/>
                     </div>
