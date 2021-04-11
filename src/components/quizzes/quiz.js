@@ -16,7 +16,10 @@ const Quiz = () => {
 
     return(
         <div>
-            <h2>Quiz {quizId}</h2>
+            <h2>
+                Quiz {quizId}
+            </h2>
+
             <ul className="list-group">
                 {
                     questions.map((question) => {
