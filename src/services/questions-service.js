@@ -5,6 +5,12 @@ const findQuestionsForQuiz = (qid) => {
         .then(response => response.json())
 }
 
+const findQuizById = (qid) => {
+    return fetch(`${QUIZZES_URL}/${qid}`)
+        .then(response => response.json())
+}
+
 export default {
-    findQuestionsForQuiz
+    findQuestionsForQuiz,
+    findQuizById
 }
