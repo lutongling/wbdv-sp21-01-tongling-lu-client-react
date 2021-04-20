@@ -19,10 +19,6 @@ const Quiz = () => {
         }
     },[quizId])
 
-    // const submitQuiz = () => {
-    //     quizService.submitQuiz(quizId, questions)
-    // }
-
     return(
         <div>
             <h2>
@@ -46,7 +42,10 @@ const Quiz = () => {
             <br/>
             <br/>
 
-            <button onClick={() => quizService.submitQuiz(quizId, questions)}
+            <button onClick={() => {
+                quizService.submitQuiz(quizId, questions)
+                alert("Already Submitted. Please check backend: /api/quizzes/:qid/attempts")
+            }}
                     className="btn btn-danger">
                 Submit
             </button>
